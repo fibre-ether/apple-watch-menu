@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.app {
+  height: 100vh;
+  width: 100vw;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  --cheight: 300px;
+  --cwidth: 250px;
+  height: var(--cheight);
+  width: var(--cwidth);
+  border: solid 10px white;
+  background: black;
+  border-radius: 75px;
+  border: solid 15px darkgrey;
+  overflow: hidden;
+}
+.overflowing-container {
+  --iwidth: 100px;
+  height: calc(var(--iwidth) * 3 * 1.35);
+  width: calc(var(--iwidth) * 3 * 1.5);
+  background: black;
+  /* background-image: linear-gradient(to bottom right, red, blue); */
+}
+.item-container {
+  height: 95%;
+  width: 95%;
+}
+.item {
+  height: var(--iwidth);
+  width: var(--iwidth);
+  background: white;
+  border-radius: calc(var(--iwidth) / 2);
+  float: left;
+  margin-bottom: calc(var(--iwidth) * -1 / 15);
+  margin-right: calc(var(--iwidth) / 15);
+}
+.clear-w-margin {
+  margin-left: calc(var(--iwidth) / 2);
+  clear: left;
+}
+.clear {
+  clear: left;
+}
