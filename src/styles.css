@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch");
 body {
+  font-family: "Chakra Petch", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -13,8 +15,9 @@ body {
 }
 
 .container {
-  --cheight: 300px;
-  --cwidth: 250px;
+  --cheight: 100vh;
+  --cwidth: 100vw;
+  position: relative;
   height: var(--cheight);
   width: var(--cwidth);
   border: solid 10px white;
@@ -24,27 +27,71 @@ body {
   overflow: hidden;
 }
 .overflowing-container {
-  --iwidth: 100px;
-  height: calc(var(--iwidth) * 3 * 1.35);
-  width: calc(var(--iwidth) * 3 * 1.5);
+  --iheight: calc(var(--cheight) / 2.5);
+  --iwidth: calc(var(--cwidth) / 3);
+  height: calc(var(--iheight) * 7.5);
+  width: calc(var(--iwidth) * 5.5);
   background: black;
-  /* background-image: linear-gradient(to bottom right, red, blue); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .item-container {
-  height: 95%;
-  width: 95%;
+  height: auto;
+  width: auto;
 }
 .item {
-  height: var(--iwidth);
+  --margin: calc(var(--iwidth) / 5);
+  height: var(--iheight);
   width: var(--iwidth);
-  background: white;
-  border-radius: calc(var(--iwidth) / 2);
+  background: #1e1e1e;
+  /* border: solid 1px #aaaaaa; */
+  border-radius: calc(var(--iheight) / 10);
   float: left;
-  margin-bottom: calc(var(--iwidth) * -1 / 15);
-  margin-right: calc(var(--iwidth) / 15);
+  margin-bottom: var(--margin);
+  margin-right: var(--margin);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.item-title {
+  z-index: 2;
+  opacity: 0;
+  color: #000000;
+  -webkit-text-stroke: 1px #1e1e1e;
+  font-size: 225%;
+  font-weight: 600;
+  transition: opacity 300ms;
+}
+.item:hover .item-title {
+  opacity: 1;
+}
+.item-image {
+  pointer-events: none;
+  z-index: 1;
+  position: absolute;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: opacity 500ms;
+  border-radius: calc(var(--iheight) / 10);
+}
+.item:hover .item-image {
+  opacity: 1;
+}
+.popup-card {
+  height: 250px;
+  width: 250px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
 }
 .clear-w-margin {
-  margin-left: calc(var(--iwidth) / 2);
+  margin-left: calc(var(--iwidth) / 2 + var(--margin) / 2);
   clear: left;
 }
 .clear {
